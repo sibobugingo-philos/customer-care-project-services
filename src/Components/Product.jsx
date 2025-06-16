@@ -1,41 +1,57 @@
-import React from 'react';
+import React from "react";
 
 const products = [
   {
     id: 1,
-    name: 'Wireless Headphones',
-    price: '$99.99',
-    image: 'https://images.unsplash.com/photo-1580894908361-967195033215?auto=format&fit=crop&w=400&q=80',
+    title: "Live Chat Support",
+    description: "Real-time chat solution for instant customer help.",
+    image:
+      "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=600&q=80",
   },
   {
     id: 2,
-    name: 'Smart Watch',
-    price: '$149.99',
-    image: 'https://images.unsplash.com/photo-1600180758890-6c3cf97353fb?auto=format&fit=crop&w=400&q=80',
+    title: "Help Desk System",
+    description: "Ticketing system to organize customer requests.",
+    image:
+      "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=600&q=80",
   },
   {
     id: 3,
-    name: 'Bluetooth Speaker',
-    price: '$79.99',
-    image: 'https://images.unsplash.com/photo-1585386959984-a4155228ef58?auto=format&fit=crop&w=400&q=80',
+    title: "New Support Analytics",
+    description: "Analyze support data to improve customer experience.",
+    image:
+      "https://images.unsplash.com/photo-1542744173-05336fcc7ad4?auto=format&fit=crop&w=600&q=80",
+  },
+  {
+    id: 4,
+    title: "Mobile Support App",
+    description: "Access support tools anywhere with your mobile device.",
+    image:
+      "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=600&q=80",
   },
 ];
 
-const Product = () => {
+const ProductList = () => {
   return (
-    <div className="p-6 max-w-6xl mx-auto">
-      <h1 className="text-3xl font-bold mb-6 text-center">Our Products</h1>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-        {products.map(product => (
-          <div key={product.id} className="border rounded-lg p-4 shadow hover:shadow-lg transition">
-            <img src={product.image} alt={product.name} className="w-full h-40 object-cover mb-4 rounded" />
-            <h2 className="text-xl font-semibold">{product.name}</h2>
-            <p className="text-lg text-gray-700">{product.price}</p>
+    <div className="flex flex-wrap justify-center gap-6 p-6 bg-gray-50">
+      {products.map(({ id, title, description, image }) => (
+        <div
+          key={id}
+          className="max-w-xs bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300"
+        >
+          <img
+            src={image}
+            alt={title}
+            className="w-full h-40 object-cover"
+          />
+          <div className="p-4">
+            <h3 className="text-lg font-semibold mb-2">{title}</h3>
+            <p className="text-gray-600 text-sm">{description}</p>
           </div>
-        ))}
-      </div>
+        </div>
+      ))}
     </div>
   );
 };
 
-export default Product;
+export default ProductList;
